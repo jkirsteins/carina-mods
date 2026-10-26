@@ -1,0 +1,5 @@
+# The catalog signing key never enters this repository (catalog keygen refuses to write it inside one).
+*.key
+node_modules/
+.DS_Store
+Thumbs.db

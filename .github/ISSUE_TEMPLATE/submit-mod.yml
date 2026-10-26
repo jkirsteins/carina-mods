@@ -1,0 +1,62 @@
+name: Submit a mod
+description: Ask for a mod to be listed in the game's mod catalog.
+title: "[submit] "
+labels: [submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for making a mod. Before you submit, run `npx carina-modkit check` and
+        `npx carina-modkit pack` on it (see SUBMITTING.md): the catalog runs the same checks. You can also open a
+        pull request that adds the mod with `npx carina-modkit catalog add`.
+  - type: input
+    id: mod
+    attributes:
+      label: Mod id
+      description: The `id` of your mod.json, for example `yourname.prism-optics`.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The `version` of your mod.json.
+    validations:
+      required: true
+  - type: dropdown
+    id: hosting
+    attributes:
+      label: Where the file lives
+      options:
+        - The catalog stores the .carinamod (one-click install in the game; up to 20 MB)
+        - My own page (itch.io or similar; players download it there and import it)
+    validations:
+      required: true
+  - type: input
+    id: download
+    attributes:
+      label: Link
+      description: A download link to the .carinamod, or your mod's page.
+    validations:
+      required: true
+  - type: input
+    id: sha256
+    attributes:
+      label: sha256
+      description: The sha256 that `carina-modkit pack` printed (lets players check the file they download).
+  - type: textarea
+    id: about
+    attributes:
+      label: About the mod
+      description: What it changes, and anything a reviewer should know.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Rights and policy
+      options:
+        - label: I made this mod, or I hold the rights to everything in it.
+          required: true
+        - label: It follows CONTENT_POLICY.md (in particular, nothing taken from other games).
+          required: true
+        - label: The licence in mod.json is the licence I grant.
+          required: true

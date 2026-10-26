@@ -1,0 +1,47 @@
+name: Report a mod
+description: Report a problem with a mod the catalog lists. The game's REPORT button opens this form.
+title: "[report] "
+labels: [report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reports are public issues. For a rights claim that needs your personal details, write to the contact
+        address in README.md instead.
+  - type: input
+    id: mod
+    attributes:
+      label: Mod id
+      description: Filled in when you came from the game.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+  - type: dropdown
+    id: reason
+    attributes:
+      label: What is wrong
+      options:
+        - Illegal content
+        - Content taken from another game, or someone else's work (rights)
+        - Harmful or abusive content
+        - A broken or dangerous file
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What is wrong and where (which picture, text or rule), and why.
+    validations:
+      required: true
+  - type: checkboxes
+    id: good-faith
+    attributes:
+      label: Good faith
+      options:
+        - label: I believe in good faith that this report is accurate and complete.
+          required: true
