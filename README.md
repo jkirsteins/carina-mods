@@ -15,7 +15,7 @@ the signature.
 
 | File | Read from | Notes |
 |---|---|---|
-| `index.json` | `https://raw.githubusercontent.com/jkirsteins/carina-mods/main/index.json` | `carina-catalog/1`; GitHub serves it with `Cache-Control: max-age=300`, so a change shows within about five minutes |
+| `index.json` | `https://raw.githubusercontent.com/jkirsteins/carina-mods/main/index.json` | `carina-catalog/1`; each package entry lists the mod's required `dependencies` (`id` and `range`), so BROWSE installs what a mod needs. GitHub serves it with `Cache-Control: max-age=300`, so a change shows within about five minutes |
 | `index.json.sig` | next to it | Ed25519 over the exact bytes of `index.json`; the game holds the public keys (edition data) |
 | `packages/<id>/<version>.carinamod` | `https://cdn.jsdelivr.net/gh/jkirsteins/carina-mods@<packagesAt>/<path>` | pinned to the commit the signed index names: jsDelivr serves a commit URL as immutable for a year, while a branch URL (`@main`) is cached 12 hours on the CDN and 7 days in the browser, so a new package could 404 for hours; length and sha256 checked against the index before the game's importer opens it |
 
@@ -37,7 +37,7 @@ You need Node 24 and the signing key (a file you keep offline; never in any repo
 Once: make the key and give the game its public half.
 
 ```sh
-npx carina-modkit catalog keygen          # writes ~/.config/carina/catalog-signing.key (mode 600)
+npx carina-modkit@^0.2.0 catalog keygen          # writes ~/.config/carina/catalog-signing.key (mode 600)
 # prints {"id": "...", "ed25519": "..."}: add it to the catalog block's keys in content/editions/*.json
 # (and set the block's contact, which the game refuses to ship as the TODO placeholder once a key is listed)
 ```
@@ -48,10 +48,10 @@ Set the repository variables `CATALOG_KEY_ID` and `CATALOG_PUBLIC_KEY` to the sa
 Each mod (minutes):
 
 ```sh
-npx carina-modkit catalog add path/to/mod.carinamod --tag balance            # a package the catalog stores
-npx carina-modkit catalog add mod.carinamod --page https://someone.itch.io/a-mod   # an external page
+npx carina-modkit@^0.2.0 catalog add path/to/mod.carinamod --tag balance            # a package the catalog stores
+npx carina-modkit@^0.2.0 catalog add mod.carinamod --page https://someone.itch.io/a-mod   # an external page
 git add packages index.json && git commit -m "Add <mod> <version>" && git push
-npx carina-modkit catalog sign --key ~/.config/carina/catalog-signing.key       # names the pushed commit
+npx carina-modkit@^0.2.0 catalog sign --key ~/.config/carina/catalog-signing.key       # names the pushed commit
 git add index.json index.json.sig && git commit -m "Sign the catalog" && git push
 ```
 

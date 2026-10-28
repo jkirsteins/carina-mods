@@ -7,7 +7,7 @@
 3. Then either
    - open a **Submit a mod** issue with a link to your `.carinamod` (or your mod's page) and the sha256 that
      `pack` printed, or
-   - open a pull request that runs `npx carina-modkit catalog add <your file>` on this repository (add
+   - open a pull request that runs `npx carina-modkit@^0.2.0 catalog add <your file>` on this repository (add
      `--page <url>` if you host the file yourself). The `validate` check must pass.
 
 The keeper reviews the mod, merges it and signs the catalog; the game shows it within minutes.

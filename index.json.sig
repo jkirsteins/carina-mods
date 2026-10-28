@@ -1,5 +1,5 @@
 {
   "$schema": "carina-catalog-sig/1",
   "key": "k-dcaf4d21",
-  "signature": "PJ4xbn4TjFl8GIg3Q4x59QHRYw2quYFYXNzEIU+xn3THogU0xtjffKdnNgHb3L+nOLN1sSAJXToFQUg64u5VCQ=="
+  "signature": "Cc93qKHCCaynkIwnORXtLGTZAn4v2A4ZvlCX2yVCBR6beG731eF2srx4kB9eZUiDrmzcmLp957FC/MnhyTkYDQ=="
 }

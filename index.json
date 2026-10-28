@@ -1,6 +1,6 @@
 {
   "$schema": "carina-catalog/1",
-  "generated": "2026-10-28T16:19:33Z",
+  "generated": "2026-10-28T20:51:45Z",
   "packagesAt": "2919c2ca332c3b0c04b2daa60af09b9cd341244e",
   "entries": [
     {
@@ -28,7 +28,17 @@
       "path": "packages/carina-team.choir-prisms/1.0.0.carinamod",
       "bytes": 765,
       "sha256": "838c9e16a99e72237adbc277bffddc5003119cf2661ceabc18b60048d11720a6",
-      "packageHash": "2addf849908e1f0b836e9444bd0908da377587c7e068b37feadd5ee720d58aa9"
+      "packageHash": "2addf849908e1f0b836e9444bd0908da377587c7e068b37feadd5ee720d58aa9",
+      "dependencies": [
+        {
+          "id": "carina-team.hollow-choir",
+          "range": "^1.0.0"
+        },
+        {
+          "id": "carina-team.prism-optics",
+          "range": "^1.0.0"
+        }
+      ]
     },
     {
       "id": "carina-team.deep-field",
@@ -56,7 +66,8 @@
       "path": "packages/carina-team.deep-field/1.0.0.carinamod",
       "bytes": 5434471,
       "sha256": "f6726da094607ea20493b342cce7b7e43eeef87b0c81990eea042fefaacb070d",
-      "packageHash": "9d4a89bd760bdfd93e903271680a4a40e375619c4b269fa8343a02bcb30abaf5"
+      "packageHash": "9d4a89bd760bdfd93e903271680a4a40e375619c4b269fa8343a02bcb30abaf5",
+      "dependencies": []
     },
     {
       "id": "carina-team.hollow-choir",
@@ -86,7 +97,8 @@
       "path": "packages/carina-team.hollow-choir/1.0.0.carinamod",
       "bytes": 1918270,
       "sha256": "d68c2ea785f0df4758b627aeaf58fe8e8e092b2fb6edb00fff7ac88c17f475d5",
-      "packageHash": "00e78ccd56e481443d7d7976448a13a2368c24cb687dec03e390bbaf6aba3052"
+      "packageHash": "00e78ccd56e481443d7d7976448a13a2368c24cb687dec03e390bbaf6aba3052",
+      "dependencies": []
     },
     {
       "id": "carina-team.prism-optics",
@@ -115,7 +127,8 @@
       "path": "packages/carina-team.prism-optics/1.0.1.carinamod",
       "bytes": 37938,
       "sha256": "e7a72edb3999d1edc890819b6a66b556e0c8774bdf9a012d8cb79f43261c905d",
-      "packageHash": "e294ce0d2ec37313c212e5a126c97b18fe7a8543a63b86b425cb98cadf9f1292"
+      "packageHash": "e294ce0d2ec37313c212e5a126c97b18fe7a8543a63b86b425cb98cadf9f1292",
+      "dependencies": []
     }
   ]
 }

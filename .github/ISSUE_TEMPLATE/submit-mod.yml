@@ -8,7 +8,7 @@ body:
       value: |
         Thank you for making a mod. Before you submit, run `npx carina-modkit check` and
         `npx carina-modkit pack` on it (see SUBMITTING.md): the catalog runs the same checks. You can also open a
-        pull request that adds the mod with `npx carina-modkit catalog add`.
+        pull request that adds the mod with `npx carina-modkit@^0.2.0 catalog add`.
   - type: input
     id: mod
     attributes:
