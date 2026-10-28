@@ -1,0 +1,29 @@
+# Checks every pull request and every push to main with the game's own importer and compiler
+# (`carina-modkit catalog check`): the index parses as the game reads it, every listed package is the file the
+# index names (bytes, sha256, package hash), opens, compiles with the base rules and its catalog dependencies,
+# and passes the review screens (no file of another game, no reserved names). On main it also checks the
+# signature with the public key in the repository variables CATALOG_KEY_ID and CATALOG_PUBLIC_KEY.
+# The private key is never here: the keeper signs on their own machine (`carina-modkit catalog sign`).
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: check the index and every package
+        run: npx --yes carina-modkit catalog check .
+      - name: check the signature
+        if: github.event_name == 'push'
+        run: >-
+          npx --yes carina-modkit catalog check .
+          --key-id "${{ vars.CATALOG_KEY_ID }}"
+          --public "${{ vars.CATALOG_PUBLIC_KEY }}"
