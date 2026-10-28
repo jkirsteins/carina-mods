@@ -1,5 +1,7 @@
 {
   "$schema": "carina-catalog/1",
+  "generated": "2026-10-28T16:19:33Z",
+  "packagesAt": "2919c2ca332c3b0c04b2daa60af09b9cd341244e",
   "entries": [
     {
       "id": "carina-team.choir-prisms",
